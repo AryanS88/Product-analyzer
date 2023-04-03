@@ -3,7 +3,7 @@ from tkinter import ttk,messagebox
 from PIL import Image, ImageTk
 
 class PlaceholderEntry(Entry):
-    def __init__(self, master=None, placeholder="Enter text", color='grey', **kwargs):
+    def __init__(self, master=None, placeholder="Enter text", color='#d1d1d1', **kwargs):
         super().__init__(master, **kwargs)
         self.placeholder = placeholder
         self.placeholder_color = color
@@ -48,12 +48,12 @@ class Search:
         frame1 = Frame(self.root, bg = None)
         frame1.place(x = 350, y = 200, width = 800, height = 60)
         
-        # create a label widget
-        label = Label(frame1, text="Type here", width = 10, font=("Arial", 15), bg= None)
-        label.pack(side=LEFT)
+        # # create a label widget
+        # label = Label(frame1, text="Type here", width = 10, font=("Arial", 15), bg= None)
+        # label.pack(side=LEFT)
 
         # create an entry widget
-        entry = PlaceholderEntry(frame1, width = 95, font=("Arial", 25),bg= None)
+        entry = PlaceholderEntry(frame1, width = 95, font=("Arial", 18),bg= None)
         entry.pack(side=LEFT)
 
         def on_enter_pressed(event):
