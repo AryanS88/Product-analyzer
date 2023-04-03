@@ -9,7 +9,7 @@ class dashboard:
         self.root.resizable(False,False)
         
         # For creating the Background Image
-        self.bg = ImageTk.PhotoImage(file='Python_Mini_Project/Images/Dashboard.png')
+        self.bg = ImageTk.PhotoImage(file='Images/Dashboard.png')
         bg = Label(self.root,image=self.bg).place(x = 0, y = 0, relwidth=1,relheight=1)
         
         # calculate the x and y coordinates for the Tk root window
@@ -27,7 +27,7 @@ class dashboard:
         frame1 = Frame(self.root,bg='grey')
         frame1.place(x = 5, y = 5, width=1490, height=80)
         
-        self.user_image = ImageTk.PhotoImage(file='Python_Mini_Project/Images/Profileimg1.png',width='50',height='50')
+        self.user_image = ImageTk.PhotoImage(file='Images/Profileimg1.png',width='50',height='50')
         btn = Button(frame1,image=self.user_image,bd=0,command=self.user_clicked,bg='grey').place(x=10,y=10)
         # Ending the Frame for Header
         
@@ -37,7 +37,7 @@ class dashboard:
 
         # To create a function for Button
         # LogoutButton = Button(frame1,text='Logout').place(x =1400,y = 5)
-        self.btn1_image = ImageTk.PhotoImage(file="Python_Mini_Project/Images/Logout.png",width="50",height="30")
+        self.btn1_image = ImageTk.PhotoImage(file="Images/Logout.png",width="50",height="30")
         btn =Button(frame1,image = self.btn1_image,bd=0,cursor="hand2",bg="grey",command=self.Logout).place(x=1400,y=5)
 
         # Creating the Frame for Footer
@@ -45,7 +45,7 @@ class dashboard:
         frame2.place(x = 5, y = 720, width=1490, height=74)
         
         # Adding an image in frame2
-        self.img = ImageTk.PhotoImage(file='Python_Mini_Project/Images/Footer_Section.png')
+        self.img = ImageTk.PhotoImage(file='Images/Footer_Section.png')
         img_label = Label(frame2, image=self.img,bg='grey')
         img_label.place(x = 0, y = 0)
 
