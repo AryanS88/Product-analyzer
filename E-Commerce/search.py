@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import ttk,messagebox
 from PIL import Image, ImageTk
 
-class Seach:
+class Search:
     def __init__(self,root):
 
         self.root = root
@@ -22,23 +22,32 @@ class Seach:
         root.geometry("1500x800+{}+{}".format(x, y))
         
         # Create Base Frame
-        frame1 = Frame(self.root, bg = "#fff")
+        frame1 = Frame(self.root, bg = None)
         frame1.place(x = 350, y = 200, width = 800, height = 60)
         
-        # title = Label(frame1, text = "Welcome to Our Family",font=("Times New Roman",20,"bold"),bg="white",fg="green").place(x= 50,y=30)
+        # create a label widget
+        label = Label(frame1, text="Type here", width = 10, font=("Arial", 15), bg= None)
+        label.pack(side=LEFT)
+
+        # create an entry widget
+        entry = Entry(frame1, width = 95, font=("Arial", 25),bg= None)
+        entry.pack(side=LEFT)
+
+        def on_enter_pressed(event):
+            name = entry.get()
+            print("Hello,", name)
+
+        # bind the Return key to the on_enter_pressed function
+        entry.bind("<Return>", on_enter_pressed)
+
+        
         self.search_img = ImageTk.PhotoImage(file = 'Images/search_new_small.png')
-        btn = Button(frame1, bd = 0, bg = 'black', image = self.search_img).place(relx = 1.0, anchor="ne", relwidth = 0.08, relheight=1)
-
-
-
-
-
-
-
+        btn = Button(frame1, command=self.search, border = NO, bg = '#f0f0f0', image = self.search_img).place(relx = 1.0, anchor="ne", relwidth = 0.08, relheight=1)
 
     def search(self):
         self.root.destroy()
-        import search
+        import product
+        
 root = Tk()
-obj = Seach(root)
+obj = Search(root)
 root.mainloop()
