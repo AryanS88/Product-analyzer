@@ -2,6 +2,29 @@ from tkinter import *
 from tkinter import ttk,messagebox
 from PIL import Image, ImageTk
 
+class PlaceholderEntry(Entry):
+    def __init__(self, master=None, placeholder="Enter text", color='grey', **kwargs):
+        super().__init__(master, **kwargs)
+        self.placeholder = placeholder
+        self.placeholder_color = color
+        self.default_fg_color = self['fg']
+        self.bind("<FocusIn>", self.on_focus_in)
+        self.bind("<FocusOut>", self.on_focus_out)
+        self.delete(0, END)
+        self.insert(0, self.placeholder)
+        self.configure(fg=self.placeholder_color)
+
+    def on_focus_in(self, event):
+        if self['fg'] == self.placeholder_color:
+            self.delete(0, END)
+            self.configure(fg=self.default_fg_color)
+
+    def on_focus_out(self, event):
+        if not self.get():
+            self.delete(0, END)
+            self.insert(0, self.placeholder)
+            self.configure(fg=self.placeholder_color)
+
 class Search:
     def __init__(self,root):
 
@@ -30,7 +53,7 @@ class Search:
         label.pack(side=LEFT)
 
         # create an entry widget
-        entry = Entry(frame1, width = 95, font=("Arial", 25),bg= None)
+        entry = PlaceholderEntry(frame1, width = 95, font=("Arial", 25),bg= None)
         entry.pack(side=LEFT)
 
         def on_enter_pressed(event):
