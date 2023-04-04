@@ -48,26 +48,23 @@ class Search:
         frame1 = Frame(self.root, bg = None)
         frame1.place(x = 350, y = 200, width = 800, height = 60)
         
-        # # create a label widget
-        # label = Label(frame1, text="Type here", width = 10, font=("Arial", 15), bg= None)
-        # label.pack(side=LEFT)
-
-        # create an entry widget
-        entry = PlaceholderEntry(frame1, width = 95, font=("Arial", 18),bg= None)
-        entry.pack(side=LEFT)
+        self.entry = PlaceholderEntry(frame1, width = 95, font=("Arial", 18),bg= None)
+        self.entry.pack(side=LEFT)
 
         def on_enter_pressed(event):
-            name = entry.get()
+            name = self.entry.get()
             print("Hello,", name)
 
         # bind the Return key to the on_enter_pressed function
-        entry.bind("<Return>", on_enter_pressed)
+        self.entry.bind("<Return>", on_enter_pressed)
 
         
         self.search_img = ImageTk.PhotoImage(file = 'Images/search_new_small.png')
         btn = Button(frame1, command=self.search, border = NO, bg = '#f0f0f0', image = self.search_img).place(relx = 1.0, anchor="ne", relwidth = 0.08, relheight=1)
 
     def search(self):
+        self.name = self.entry.get()
+        print('Searching...',self.name)
         self.root.destroy()
         import product
         
