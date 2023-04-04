@@ -29,18 +29,18 @@ class Login_window:
         
         # email Field in row 1
         
-        email_id = Label(frame1, text = "Email :",font=("Montserrat",15,"bold"),bg="#CAF0F8",fg="gray").place(x= 250,y=100)
+        email_id = Label(frame1, text = "Email :",font=("Montserrat",15,"bold"),bg="#CAF0F8",fg="#0d96f2").place(x= 250,y=100)
         self.txt_email_id = Entry( frame1, font=("Montserrat",15),bg="#90e0ef")
         self.txt_email_id.place(x= 250,y=130, width=250)
         
         # password Field in row 2
                 
-        password = Label( frame1, text = "Password :",font=("Montserrat",15,"bold"),bg="#CAF0F8",fg="gray").place(x= 250,y=160)
+        password = Label( frame1, text = "Password :",font=("Montserrat",15,"bold"),bg="#CAF0F8",fg="#0d96f2").place(x= 250,y=160)
         self.txt_password = Entry( frame1, font=("Montserrat",15),bg="#90e0ef")
         self.txt_password.place(x= 250,y=190, width=250)
         
         # Registered Account Field
-        btn_register = Button( frame1, cursor='hand2', text='Registered Account ?',command=self.register_window,font=("Montserrat",14),bg='#CAF0F8',bd=0,fg='#B00857').place(x =280,y =220)
+        btn_register = Button( frame1, cursor='hand2', text='Registered Account ?',command=self.register_window,font=("Montserrat",14),bg='#CAF0F8',bd=0,fg='#0d96f2').place(x = 275,y = 240)
         
         # Login Button
         
@@ -49,7 +49,7 @@ class Login_window:
         # chk = Checkbutton(  text="I Agree to the Terms and Conditions of your WebApp", variable=self.var_chk,onvalue=1, offvalue=0 ,bg="white", font=("Montserrat",10)).place(x=216,y=260)
     
         self.btn_image = ImageTk.PhotoImage(file="Images/login.png",width="50",height="30")
-        btn =Button(frame1,  image = self.btn_image,bd=0,cursor="hand2",command=self.login,bg="#CAF0F8").place(x=320,y=300,width=80,height=30)
+        btn = Button(frame1,  image = self.btn_image,bd=0,cursor="hand2",command=self.login,bg="#CAF0F8").place(x=330,y=280,width=80,height=30)
         
     def register_window(self):
         self.root.destroy()
