@@ -24,7 +24,7 @@ class Home:
         header = Frame(self.root,bg="grey",borderwidth=30)
         header.pack(side=TOP,fill="x")
 
-        self.Profile_image = ImageTk.PhotoImage(file="Images/profileimg.png",width=(100),height=(100))
+        self.Profile_image = ImageTk.PhotoImage(file="Images/Profile_img.png",width=(100),height=(100))
         label1 = Label(header,image=self.Profile_image,background="grey")
         label1.pack(side=LEFT,anchor="ne")
 
