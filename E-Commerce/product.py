@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import ttk,messagebox
 from PIL import Image, ImageTk
 
-class Home:
+class Product:
     def __init__(self,root):
         # Driver Code 
         self.root = root
@@ -17,58 +17,55 @@ class Home:
         # set the window position to the center of the screen
         root.geometry("1500x800+{}+{}".format(x, y))
         
-        # For changing the background color
-        self.root.config(bg='white')
+        # Creating button for Search Screen
+        self.search_image = ImageTk.PhotoImage(file='Images/search_new_small.png')
+        btn = Button(image=self.search_image,bd=0,command=self.search,bg='#f6f6f6').place(x=1320,y=12)
         
-        #Header section code starts below
-        header = Frame(self.root,bg="grey",borderwidth=30)
-        header.pack(side=TOP,fill="x")
-
-        self.Profile_image = ImageTk.PhotoImage(file="Images/Profile_img.png",width=(100),height=(100))
-        label1 = Label(header,image=self.Profile_image,background="grey")
-        label1.pack(side=LEFT,anchor="ne")
-
-        label2 = Label(header,text="Product Analyser",background="grey",font="bold")
-        label2.pack()
-
-        LoginButton = Button(header,width=(10),height=(2),fg="black",text="Logout",relief=SUNKEN,cursor="hand2",command=self.LogoutButton)
-        LoginButton.pack(side=RIGHT,anchor="se")
-        #Header section code ends here
-
-        #Footer section code starts here
-
-        footer = Frame(root,bg="grey",borderwidth=30)
-        footer.pack(side=BOTTOM,fill="x")
-
-        label3 = Label(footer,text="About Us",background="grey")
-        label3.pack(side=LEFT)
-
-        #Footer section code ends here
+        # For creating the Background Image
+        self.bg = ImageTk.PhotoImage(file='Images/Dashboard.png')
+        bg = Label(self.root,image=self.bg).place(x = 0, y = 0, relwidth=1,relheight=1)
         
-        #Main Body section code starts here
+        # --------Starting of the Header--------
 
-        body = Frame(root,bg="black",borderwidth=63)
-        body.pack(side="left",fill="both")
+        # For Opening Search Window
+        self.user_image = ImageTk.PhotoImage(file='Images/Profile_img.png',width='50',height='50')
+        btn = Button(image=self.user_image,command=self.user_clicked,bg="#f6f6f6", highlightthickness=0, bd=0).place(x=10,y=10)
 
-        self.recentimg1 = ImageTk.PhotoImage(file="Images/recentimg1.png",width=(300),height=(300))
-        label4 = Label(body,image=self.recentimg1)
-        label4.pack(side=LEFT,anchor="ne",padx="10")
+        # To create a function for Button
+        self.btn1_image = ImageTk.PhotoImage(file="Images/Logout (Blue).png")
+        btn = Button(image = self.btn1_image,bd=0,cursor="hand2",bg=None,command=self.LogoutButton).place(x=1400,y = 20)
+        
+        # --------Ending of the Header--------
+    
+    
+        # --------Starting of the Content--------
+        
+        self.recentimg1 = ImageTk.PhotoImage(file="Images/recentimg1.png",width=(400),height=(400))
+        label_1 = Label(image=self.recentimg1,bg='#f6f6f6').place(x=75,y = 200)
+        
+        self.recentimg2 = ImageTk.PhotoImage(file="Images/recentimg1.png",width=(400),height=(400))
+        label_1 = Label(image=self.recentimg1,bg='#f6f6f6').place(x=590,y = 200)
+        
+        self.recentimg3 = ImageTk.PhotoImage(file="Images/recentimg1.png",width=(400),height=(400))
+        label_1 = Label(image=self.recentimg1,bg='#f6f6f6').place(x=1125,y = 200)
+        
+        # --------Ending of the Content-----------
+    
+    
+        # --------Starting of the Footer--------
+        frame2 = Frame(self.root,bg='#f6f6f6')
+        frame2.place(x = 5, y = 720, width=1490, height=74)
+        
+        # Adding an image in frame2
+        self.img = ImageTk.PhotoImage(file='Images/Footer_Section.png')
+        img_label = Label(frame2, image=self.img,bg='#f6f6f6')
+        img_label.place(x = 0, y = 0)
 
-        self.recentimg2 = PhotoImage(file="Images/recentimg1.png",width=(300),height=(300))
-        label5 = Label(body,image=self.recentimg2)
-        label5.pack(side=LEFT,anchor="ne",padx="10")
-
-        self.recentimg3 = ImageTk.PhotoImage(file="Images/recentimg1.png",width=(300),height=(300))
-        label6 = Label(body,image=self.recentimg3)
-        label6.pack(side=LEFT,anchor="ne",padx="10")
-
-        self.recentimg4 = ImageTk.PhotoImage(file="Images/recentimg1.png",width=(300),height=(300))
-        label7 = Label(body,image=self.recentimg4)
-        label7.pack(side=LEFT,anchor="ne",padx="10")
-
-        Continuebutton = Button(body,width=(15),height=(2),fg="black",text="Continue to search",relief=SUNKEN,cursor="hand2",command=self.search)
-        Continuebutton.pack(side=BOTTOM,anchor="se")
-        #Main body section code ends here
+        # --------Ending of the Header--------
+        
+    def user_clicked(self):
+        print('User clicked!!')
+        
     def search(self):
         self.root.destroy()
         import search
@@ -77,5 +74,5 @@ class Home:
         import login
 
 root = Tk()
-obj = Home(root)
+obj = Product(root)
 root.mainloop()
