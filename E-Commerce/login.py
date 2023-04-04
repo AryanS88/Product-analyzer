@@ -69,7 +69,7 @@ class Login_window:
                 else:
                     messagebox.showinfo('Success','Welcome!',parent = self.root)
                     self.root.destroy()
-                    import home
+                    import practice
                     
                 con.close()
                    

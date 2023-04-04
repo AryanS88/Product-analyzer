@@ -27,14 +27,26 @@ class dashboard:
         frame1 = Frame(self.root,bg='grey')
         frame1.place(x = 5, y = 5, width=1490, height=80)
         
+        # Creating button for Search Screen
+        self.search_image = ImageTk.PhotoImage(file='Images/search_new_small.png')
+        btn = Button(frame1,image=self.search_image,bd=0,command=self.go_to_search,bg='grey').place(x=800,y=10)
+        
+        # For Opening Search Window
+        
         self.user_image = ImageTk.PhotoImage(file='Images/Profileimg1.png',width='50',height='50')
         btn = Button(frame1,image=self.user_image,bd=0,command=self.user_clicked,bg='grey').place(x=10,y=10)
+        
+        
         # Ending the Frame for Header
         
         # Creating About US Frame
         frame3 = Frame(self.root,bg='grey')
         frame3.place(x = 200, y = 200, width=1100, height=400)
-
+        
+        # About Us information frame
+        self.about_us_img = ImageTk.PhotoImage(file='Images/About_Us_Section.png',width=1100,height=400)
+        btn = Button(frame3,image=self.about_us_img,bd=0,command=None,bg='grey').place(x = -3,y = -2)
+        
         # To create a function for Button
         # LogoutButton = Button(frame1,text='Logout').place(x =1400,y = 5)
         self.btn1_image = ImageTk.PhotoImage(file="Images/Logout.png",width="50",height="30")
@@ -58,6 +70,9 @@ class dashboard:
     def user_clicked(self):
         print('User clicked!!')
     
+    def go_to_search(self):
+        self.root.destroy()
+        import search
     
 if __name__ == '__main__':
     root = Tk()
