@@ -3,7 +3,7 @@ from tkinter import ttk,messagebox
 from PIL import Image, ImageTk
 
 class PlaceholderEntry(Entry):
-    def __init__(self, master=None, placeholder="Enter query", color='#4b4b4b', **kwargs):
+    def __init__(self, master=None, placeholder="Enter query", color='#777777', **kwargs):
         super().__init__(master, **kwargs)
         self.placeholder = placeholder
         self.placeholder_color = color
@@ -12,7 +12,7 @@ class PlaceholderEntry(Entry):
         self.bind("<FocusOut>", self.on_focus_out)
         self.delete(0, END)
         self.insert(0, self.placeholder)
-        self.configure(fg=self.placeholder_color)
+        self.configure(fg=self.placeholder_color, bd = 0)
 
     def on_focus_in(self, event):
         if self['fg'] == self.placeholder_color:
@@ -54,7 +54,7 @@ class Search:
         frame1.place(x = 350, y = 200, width = 850, height = 70)
 
         # create an entry widget
-        self.entry = PlaceholderEntry(frame1,width = 95, font=("Helvetica", 20), bg= '#58d7f1')
+        self.entry = PlaceholderEntry(frame1,width = 95, font=("Helvetica", 20), bg= '#CAF0F8')
         self.entry.pack(side=LEFT)
 
         def on_enter_pressed(event):
