@@ -1,2 +1,3 @@
-        frame1 = Frame(self.root,bg="#CAF0F8")
-        frame1.place(x = 375, y = 200, width=750, height=400)
+
+        # self.style.theme_use("default")
+        # self.style.configure("RoundedEntry", background="#ffffff", borderwidth=0, relief="flat", foreground="#000000", padding=10)
