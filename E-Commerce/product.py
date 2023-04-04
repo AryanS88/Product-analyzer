@@ -29,7 +29,7 @@ class Product:
 
         # For Opening Search Window
         self.user_image = ImageTk.PhotoImage(file='Images/Profile_img.png',width='50',height='50')
-        btn = Button(image=self.user_image,command=self.user_clicked,bg="#f6f6f6", highlightthickness=0, bd=0).place(x=10,y=10)
+        btn = Button(image=self.user_image,command=self.user_clicked,bg="#4db0f4", highlightthickness=0, bd=0).place(x=10,y=10)
 
         # To create a function for Button
         self.btn1_image = ImageTk.PhotoImage(file="Images/Logout (Blue).png")
@@ -41,13 +41,12 @@ class Product:
         # --------Starting of the Content--------
         
         self.recentimg1 = ImageTk.PhotoImage(file="Images/recentimg1.png",width=(400),height=(400))
-        label_1 = Label(image=self.recentimg1,bg='#f6f6f6').place(x=75,y = 200)
+        label_1 = Label(image=self.recentimg1,bg='#f6f6f6').place(x=255,y = 240)
         
-        self.recentimg2 = ImageTk.PhotoImage(file="Images/recentimg1.png",width=(400),height=(400))
-        label_1 = Label(image=self.recentimg1,bg='#f6f6f6').place(x=590,y = 200)
+        
         
         self.recentimg3 = ImageTk.PhotoImage(file="Images/recentimg1.png",width=(400),height=(400))
-        label_1 = Label(image=self.recentimg1,bg='#f6f6f6').place(x=1125,y = 200)
+        label_1 = Label(image=self.recentimg1,bg='#f6f6f6').place(x=925,y = 240)
         
         # --------Ending of the Content-----------
     
