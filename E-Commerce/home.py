@@ -12,6 +12,7 @@ class dashboard:
         self.bg = ImageTk.PhotoImage(file='Images/Dashboard.png')
         bg = Label(self.root,image=self.bg).place(x = 0, y = 0, relwidth=1,relheight=1)
         
+
         # calculate the x and y coordinates for the Tk root window
         screen_width = root.winfo_screenwidth()
         screen_height = root.winfo_screenheight()
@@ -21,33 +22,26 @@ class dashboard:
 
         # To set center of the screen
         self.root.geometry('1500x800+{}+{}'.format(x, y))
-                
-        # self.style = self.Style()
-        # self.style.configure('Transparent.TFrame', background='')
-
-        # Creating the Frame for Header
-        # frame1 = Frame(self.root, bg = None)
-        # frame1.place(x = 5, y = 5, width=1490, height=80)
         
         # Creating button for Search Screen
         self.search_image = ImageTk.PhotoImage(file='Images/search_new_small.png')
         btn = Button(image=self.search_image,bd=0,command=self.go_to_search,bg='#f6f6f6').place(x=1320,y=12)
         
+
         # For Opening Search Window
-        
         self.user_image = ImageTk.PhotoImage(file='Images/Profile_img.png',width='50',height='50')
         btn = Button(image=self.user_image,command=self.user_clicked,bg="#4db0f4", highlightthickness=0, bd=0).place(x=10,y=10)
-        
 
         # Ending the Frame for Header
+
 
         # About Us Image
         self.about_us_img = ImageTk.PhotoImage(file='Images/About_Us_Section.png')
         about_us_img = Label(image=self.about_us_img,bg='#f6f6f6')
         about_us_img.place(x = 200, y = 200)
         
-        # To create a function for Button
 
+        # To create a function for Button
         self.btn1_image = ImageTk.PhotoImage(file="Images/Logout (Blue).png")
         btn = Button(image = self.btn1_image,bd=0,cursor="hand2",bg=None,command=self.Logout).place(x=1400,y = 20)
 

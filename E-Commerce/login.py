@@ -12,6 +12,9 @@ class Login_window:
         self.bg = ImageTk.PhotoImage(file="Images/background.png")
         bg = Label(self.root, image = self.bg).place(x = 0, y = 0, relwidth=1,relheight=1)
         
+        frame1 = Frame(self.root,bg="#CAF0F8")
+        frame1.place(x = 375, y = 200, width=750, height=400)
+
         # calculate the center coordinates of the screen
         screen_width = root.winfo_screenwidth()
         screen_height = root.winfo_screenheight()
@@ -20,36 +23,33 @@ class Login_window:
         
         # set the window position to the center of the screen
         root.geometry("1500x800+{}+{}".format(x, y))
-       
-        # Creation of Registration Frame
-        frame1 = Frame(self.root,bg="white")
-        frame1.place(x = 375, y = 200, width=750, height=400)
         
-        title = Label(frame1, text = "Welcome Back Missed your Presence!!",font=("Times New Roman",20,"bold"),bg="white",fg="green").place(x= 150,y=30)
+
+        title = Label(frame1, text = "Welcome Back!", font=("Montserrat",20,"bold"),bg="#CAF0F8",fg="#1d3557").place(x= 150,y=30)
         
         # email Field in row 1
         
-        email_id = Label(frame1, text = "Email :",font=("Times New Roman",15,"bold"),bg="white",fg="gray").place(x= 250,y=100)
-        self.txt_email_id = Entry(frame1, font=("times new roman",15),bg="lightgray")
+        email_id = Label(frame1, text = "Email :",font=("Montserrat",15,"bold"),bg="#CAF0F8",fg="gray").place(x= 250,y=100)
+        self.txt_email_id = Entry( frame1, font=("Montserrat",15),bg="#90e0ef")
         self.txt_email_id.place(x= 250,y=130, width=250)
         
         # password Field in row 2
                 
-        password = Label(frame1, text = "Password :",font=("Times New Roman",15,"bold"),bg="white",fg="gray").place(x= 250,y=160)
-        self.txt_password = Entry(frame1, font=("times new roman",15),bg="lightgray")
+        password = Label( frame1, text = "Password :",font=("Montserrat",15,"bold"),bg="#CAF0F8",fg="gray").place(x= 250,y=160)
+        self.txt_password = Entry( frame1, font=("Montserrat",15),bg="#90e0ef")
         self.txt_password.place(x= 250,y=190, width=250)
         
         # Registered Account Field
-        btn_register = Button(frame1,cursor='hand2', text='Registered Account ?',command=self.register_window,font=("Times New Roman",14),bg='white',bd=0,fg='#B00857').place(x =280,y =220)
+        btn_register = Button( frame1, cursor='hand2', text='Registered Account ?',command=self.register_window,font=("Montserrat",14),bg='#CAF0F8',bd=0,fg='#B00857').place(x =280,y =220)
         
         # Login Button
         
         # T & C 
         # self.var_chk = IntVar()
-        # chk = Checkbutton(frame1,text="I Agree to the Terms and Conditions of your WebApp", variable=self.var_chk,onvalue=1, offvalue=0 ,bg="white", font=("Times New Roman",10)).place(x=216,y=260)
+        # chk = Checkbutton(  text="I Agree to the Terms and Conditions of your WebApp", variable=self.var_chk,onvalue=1, offvalue=0 ,bg="white", font=("Montserrat",10)).place(x=216,y=260)
     
         self.btn_image = ImageTk.PhotoImage(file="Images/login.png",width="50",height="30")
-        btn =Button(frame1,image = self.btn_image,bd=0,cursor="hand2",command=self.login,bg="white").place(x=320,y=300,width=80,height=30)
+        btn =Button(frame1,  image = self.btn_image,bd=0,cursor="hand2",command=self.login,bg="#CAF0F8").place(x=320,y=300,width=80,height=30)
         
     def register_window(self):
         self.root.destroy()
@@ -73,7 +73,6 @@ class Login_window:
                     
                 con.close()
                    
-                
             except Exception as es:
                 messagebox.showerror('Error',f'Error due to {str(es)}',parent = self.root)
 root = Tk()
