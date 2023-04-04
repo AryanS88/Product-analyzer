@@ -58,8 +58,7 @@ class dashboard:
     def user_clicked(self):
         print('User clicked!!')
     
-    
-if __name__ == '__main__':
-    root = Tk()
-    obj = dashboard(root)
-    root.mainloop()
+
+root = Tk()
+obj = dashboard(root)
+root.mainloop()

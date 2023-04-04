@@ -45,8 +45,8 @@ class Login_window:
         # Login Button
         
         # T & C 
-        self.var_chk = IntVar()
-        chk = Checkbutton(frame1,text="I Agree to the Terms and Conditions of your WebApp", variable=self.var_chk,onvalue=1, offvalue=0 ,bg="white", font=("Times New Roman",10)).place(x=216,y=260)
+        # self.var_chk = IntVar()
+        # chk = Checkbutton(frame1,text="I Agree to the Terms and Conditions of your WebApp", variable=self.var_chk,onvalue=1, offvalue=0 ,bg="white", font=("Times New Roman",10)).place(x=216,y=260)
     
         self.btn_image = ImageTk.PhotoImage(file="Images/login.png",width="50",height="30")
         btn =Button(frame1,image = self.btn_image,bd=0,cursor="hand2",command=self.login,bg="white").place(x=320,y=300,width=80,height=30)
@@ -60,7 +60,7 @@ class Login_window:
             messagebox.showerror('Error',"Please enter valid credentials",parent = self.root)
         else:
             try:
-                con = pymysql.connect(host='localhost',user='root',password='Divya2206@$',database='mypro')
+                con = pymysql.connect(host='localhost',user='root',password='toor',database='mypro')
                 cur = con.cursor()
                 cur.execute('select * from register where email=%s and password=%s',(self.txt_email_id.get(),self.txt_password.get()))
                 row = cur.fetchone()
@@ -69,7 +69,7 @@ class Login_window:
                 else:
                     messagebox.showinfo('Success','Welcome!',parent = self.root)
                     self.root.destroy()
-                    import home
+                    import practice
                     
                 con.close()
                    

@@ -105,7 +105,7 @@ class Register:
         
         else:
             try:
-                con = pymysql.connect(host='localhost',user='root',password='Divya2206@$',database='mypro')
+                con = pymysql.connect(host='localhost',user='root',password='toor',database='mypro')
                 cur = con.cursor()
                 cur.execute('select * from register where email=%s',self.txt_email_id.get())
                 row = cur.fetchone()
