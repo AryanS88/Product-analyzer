@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk,messagebox
 from PIL import Image, ImageTk
+import webbrowser
 
 class PlaceholderEntry(Entry):
     def __init__(self, master=None, placeholder="Enter query", color='#777777', **kwargs):
@@ -67,12 +68,21 @@ class Search:
         self.search_img = ImageTk.PhotoImage(file = 'Images/search_new_new.png')
         btn = Button(frame1, command=self.search, border = NO, bg = '#93e5f6', image = self.search_img).place(relx = 1.0, anchor="ne", relwidth = 0.08, relheight=1)
 
+        # # # Creating a back button
+        self.back_image = ImageTk.PhotoImage(file = 'Images/back.png')
+        btn = Button(command=self.back_func, image = self.back_image,bg='#CAF0F8',bd=0).place(x=20,y=20)
+        
     def search(self):
         self.name = self.entry.get()
+        url = 'http://amazon.com/search?q={}'.format(self.name)
+        webbrowser.open(url)
         print('Searching...',self.name)
         self.root.destroy()
         import product
         
+    def back_func(self):
+        self.root.destroy()
+        import dashboard    
 root = Tk()
 obj = Search(root)
 root.mainloop()
