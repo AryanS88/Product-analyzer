@@ -74,11 +74,14 @@ class Search:
         
     def search(self):
         self.name = self.entry.get()
-        url = 'http://amazon.com/search?q={}'.format(self.name)
-        webbrowser.open(url)
+        self.url1 = 'https://www.amazon.in/s?k={}'.format(self.name)
+        self.url2 = 'https://www.flipkart.com/search?q={}'.format(self.name)
+        webbrowser.open(self.url1)
+        webbrowser.open(self.url2)
         print('Searching...',self.name)
         self.root.destroy()
         import product
+        return print(self.url1)
         
     def back_func(self):
         self.root.destroy()
