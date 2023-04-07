@@ -1,7 +1,10 @@
 from tkinter import *
 from tkinter import ttk,messagebox
 from PIL import Image, ImageTk
-
+import csv
+from urllib.request import urlopen
+from flipkart_scrpper import file_name,col1, col2, col3, col4, col5, col11, col12, col13, col14, col15
+# from amazon_scrapper import file_name_az,title, price, stars, ratings, col5first_elem
 class Product:
     def __init__(self,root):
         # Driver Code 
@@ -39,14 +42,61 @@ class Product:
     
     
         # --------Starting of the Content--------
+        # self.amazon_img =
+        url = col5
+        u=urlopen(url)
+        raw_data=u.read()
+        u.close()
+        self.recentimg1 = ImageTk.PhotoImage(data=raw_data,width=(400),height=(400))
+        label_1 = Label(image=self.recentimg1,bg='#f6f6f6',bd=0).place(x=255,y =100)
         
-        self.recentimg1 = ImageTk.PhotoImage(file="Images/recentimg1.png",width=(400),height=(400))
-        label_1 = Label(image=self.recentimg1,bg='#f6f6f6').place(x=255,y = 240)
+        text_label_1=Label(text="Title :")
+        text_label_1.place(x=200, y=600)
+        label_2 = Label(text=col1)
+        label_2.place(x=255, y=600)
         
+        text_label_3=Label(text="Price :")
+        text_label_3.place(x=200, y=630)
+        label_3 = Label(text=col2[2:])
+        label_3.place(x=255, y=630)
+
+        text_label_4=Label(text="Stars :")
+        text_label_4.place(x=200, y=660)
+        label_4 = Label(text=col3)
+        label_4.place(x=255, y=660)
+
+        text_label_5=Label(text="Reviews :")
+        text_label_5.place(x=200, y=690)
+        label_5 = Label(text=col4)
+        label_5.place(x=255, y=690)
         
+        url = col15
+        v=urlopen(url)
+        raw_data1=v.read()
+        v.close()
         
-        self.recentimg3 = ImageTk.PhotoImage(file="Images/recentimg1.png",width=(400),height=(400))
-        label_1 = Label(image=self.recentimg1,bg='#f6f6f6').place(x=925,y = 240)
+        self.recentimg3 = ImageTk.PhotoImage(data=raw_data1,width=(400),height=(400))
+        label_8 = Label(image=self.recentimg3,bg='#f6f6f6',bd=0).place(x=925,y = 100)
+        
+        text_label_12=Label(text="Title:")
+        text_label_12.place(x=870, y=600)
+        label_2 = Label(text=col11)
+        label_2.place(x=925, y=600)
+        
+        text_label_13=Label(text="price :")
+        text_label_13.place(x=870, y=630)
+        label_3 = Label(text=col12[2:])
+        label_3.place(x=925, y=630)
+        
+        text_label_14=Label(text="stars :")
+        text_label_14.place(x=870, y=660)
+        label_4 = Label(text=col13)
+        label_4.place(x=925, y=660)
+        
+        text_label_15=Label(text="Reviews :")
+        text_label_15.place(x=870, y=690)
+        label_5 = Label(text=col14)
+        label_5.place(x=925, y=690)
         
         # --------Ending of the Content-----------
     
